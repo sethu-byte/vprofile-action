@@ -26,6 +26,12 @@ jobs:
       
       - name: Setup SonarQube
         uses: warchant/setup-sonar-scanner@v7
+
+      - name: Debug Secrets
+        run: |
+          echo "SONAR_URL: ${{ secrets.SONAR_URL }}"
+          echo "SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}"
+          echo "SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}"
         
       - name: SonarQube Scan
         run: sonar-scanner
